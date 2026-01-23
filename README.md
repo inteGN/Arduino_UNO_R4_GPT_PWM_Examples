@@ -1,2 +1,50 @@
 # Arduino_UNO_R4_GPT_PWM_Examples
-Different methods for generating PWM signals on the Arduino UNO R4
+
+## 目的 / Purpose
+このリポジトリは、Arduino UNO R4 (RA4M1) でPWM信号を生成する色々な方法を示しています。  
+例は単純なものから高度なものへと進み、複雑さが増えますがユーザーができる制御レベルも向上します。  
+This repository demonstrates different methods for generating PWM signals on the Arduino UNO R4 (RA4M1).  
+The examples progress from simple to advanced, increasing both complexity and the level of control available to the user.  
+
+---
+
+## 方法 / Methods
+**これらの例はArduino UNO R4 Minimaを対象としています。**  
+UNO R4 WiFiでは、ArduinoピンとRA4M1ポートとの割り当てが異なるため、同じコードでも異なる結果になる可能性があります。  
+**These examples target the Arduino UNO R4 Minima.**  
+On the UNO R4 WiFi, the RA4M1 port assignment for Arduino pins differs, which may lead to different behavior even when running the same code  
+
+1. **pwm.h Basic** `pwm_by_pwmlib.ino`  
+   - 中レベルArduino API / Mid-level Arduino API  
+   - 1つのGPTにつき1出力 / Single GPT per output  
+   - GPT間の同期は非保証 / No guarantee of phase synchronization between one GPT and another  
+<br>
+
+---
+
+## ピン接続 / Pin connection
+- PWM出力ピンをオシロスコープのプローブに接続する  
+- Connect PWM signal pins to probes of oscilloscope  
+
+---
+
+## ポイント / Key insights
+GPTタイマーのインプットキャプチャ・コンペアマッチレジスタGTCCRAとGTCCRBと入出力ピンのつながりは、RA4M1ではあまり自由に選択できません。  
+**Arduino UNO R4 MINIMA**におけるGPT-ピン接続を下に示します。  
+On the RA4M1, the mapping between GPT compare registers (GTCCRA / GTCCRB) and the actual I/O pins is not freely selectable.  
+The GPT–pin assignment for the **Arduino UNO R4 MINIMA** is shown below.  
+
+<img src="docs/images/gpt_pin_assignment.png" width="600px">  
+
+
+---
+
+## 必要な環境 / Requirements
+- Arduino IDE（最新版推奨） / Arduino IDE (latest recommended)  
+- Arduino UNO R4 MINIMA / Arduino UNO R4 MINIMA  
+
+---
+
+## License
+Copyright (c) 2026 inteGN - MIT License  
+

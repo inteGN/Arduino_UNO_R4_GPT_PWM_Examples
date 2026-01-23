@@ -44,7 +44,7 @@ void setup() {
 
 //// Loop function
 void loop() {
-// nothing todo
+// nothing to do
   delayMicroseconds(10);
 }
 

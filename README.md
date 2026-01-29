@@ -19,6 +19,11 @@ On the UNO R4 WiFi, the RA4M1 port assignment for Arduino pins differs, which ma
    - 1つのGPTにつき1出力 / Single GPT per output  
    - GPT間の同期は非保証 / No guarantee of phase synchronization between one GPT and another  
 <br>
+2. **pwm.h + ELC** `pwm_by_pwmlib_with_sync.ino`  
+   - GPTタイマーはイベントリンクコントローラと連携可能 / GPTs can be linked via Event Link Controller  
+   - 非同期のPWMを同期化 / Non-synchronized PWM becomes synchronized  
+   - RA4M1の特有の機能をデモンストレーション / Demonstrates RA4M1-specific features  
+<br>
 
 ---
 

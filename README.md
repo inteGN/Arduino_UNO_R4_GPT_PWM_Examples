@@ -14,13 +14,25 @@ UNO R4 WiFiでは、ArduinoピンとRA4M1ポートとの割り当てが異なる
 **These examples target the Arduino UNO R4 Minima.**  
 On the UNO R4 WiFi, the RA4M1 port assignment for Arduino pins differs, which may lead to different behavior even when running the same code  
 
-1. **pwm.h Basic** `pwm_by_pwmlib.ino`  
+1. **analogWrite** `pwm_by_analogWrite.ino`  
+   - 高レベルArduino API / High-level Arduino API  
+   - GPTチャネル間で安全に共有 / GPT channels are shared safely  
+   - 同一GPT使用により出力の自動的な同期 / Outputs are automatically synchronized between pins that use the same GPT  
+   - 従来Arduinoの挙動との互換性を反映 / Maintains compatibility with classic Arduino behavior  
+   - おまけ：`knight_rider_by_analogWrite.ino`  ハードウェア詳細を隠蔽した高レベル抽象化のデモ  
+     Option: `knight_rider_by_analogWrite.ino` demonstrates how high-level abstraction hides hardware resource details  
+
+LED順次点灯中の動画 / video showing the LED scanning  
+[![Arduino NANO R4: LED scanning by analogWrite](https://img.youtube.com/vi/bKGefwY_hhk/0.jpg)](https://www.youtube.com/watch?v=bKGefwY_hhk)  
+<br>
+
+2. **pwm.h Basic** `pwm_by_pwmlib.ino`  
    - 中レベルArduino API / Mid-level Arduino API  
    - 1つのGPTにつき1出力 / Single GPT per output  
    - GPT間の同期は非保証 / No guarantee of phase synchronization between one GPT and another  
 <br>
 
-2. **pwm.h + ELC** `pwm_by_pwmlib_with_sync.ino`  
+3. **pwm.h + ELC** `pwm_by_pwmlib_with_sync.ino`  
    - GPTタイマーはイベントリンクコントローラと連携可能 / GPTs can be linked via Event Link Controller  
    - 非同期のPWMを同期化 / Non-synchronized PWM becomes synchronized  
    - RA4M1の特有の機能をデモンストレーション / Demonstrates RA4M1-specific features  

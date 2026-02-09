@@ -24,7 +24,6 @@ The duty ratio of each channel is updated independently and continuously inside 
 FspTimer  timer0;
 uint32_t  pwm_period = 2400;
 uint32_t  pwm_count0 = 1200;
-uint32_t  $TEST0;
 
 //// Setup function
 void setup() {

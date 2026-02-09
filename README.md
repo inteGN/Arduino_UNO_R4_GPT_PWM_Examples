@@ -38,6 +38,15 @@ LED順次点灯中の動画 / video showing the LED scanning
    - RA4M1の特有の機能をデモンストレーション / Demonstrates RA4M1-specific features  
 <br>
 
+4. **FspTimer.h** `pwm_by_fsptimerlib.ino`  
+   - GPTの構成にしたがった低レベルAPI / Low-level API in accordance with GPT configuration  
+   - GPTのハードウェアの完全なコントロール / Full control over GPT hardware  
+   - 同一GPT使用により2つのPWM出力チャネルの自動的な同期 / Two PWM channels are automatically synchronized between pins that use the same GPT  
+
+動作中の動画 / video showing the behavior (Japanese caption only)  
+[![Arduino UNO R4 basic PWM waveform](https://img.youtube.com/vi/pTTQ-6RoXlk.jpg)](https://www.youtube.com/watch?v=pTTQ-6RoXlk)  
+<br>
+
 ---
 
 ## ピン接続 / Pin connection

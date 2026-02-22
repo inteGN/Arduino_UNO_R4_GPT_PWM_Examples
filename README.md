@@ -50,6 +50,10 @@ LED順次点灯中の動画 / video showing the LED scanning
 5. **FspTimer + PWM extended configuration access** `pwm_by_fsptimerlib_on_triangle-wave.ino`  
    - アドバンストPWM（三角波ベースPWM、デッドタイム） / Advanced PWM (triangular wave based and dead-time)  
    - ライブラリの限界とPWM拡張設定の必要性をデモンストレーション / Demonstrates library limitations and necessity of PWM extended configuration access  
+>注釈 (2026‑02‑22)  
+>このプログラム例は、p_pwm_cfgが動的に割り当てられGPTimerによって管理されるように修正されました。  
+>NOTE (2026‑02‑22)  
+>The example has been revised so that p_pwm_cfg is allocated dynamically and managed by GPTimer.  
 
 動作中の動画 / video showing the behavior (Japanese caption only)  
 [![Arduino UNO R4 complementary PWM waveform](https://img.youtube.com/vi/9YkxbCOWgAE/0.jpg)](https://www.youtube.com/watch?v=9YkxbCOWgAE)  

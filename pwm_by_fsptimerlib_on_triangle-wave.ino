@@ -1,6 +1,6 @@
 //************************************************
 //  FILE        :pwm_by_fsptimerlib_on_triangle-wave.ino
-//  DATE        :2026/01/20
+//  DATE        :2026/01/20, 2026/02/22
 //  DESCRIPTION :PWM output by FspTimer.h library on triangle-wave
 //  BOARD TYPE  :UNO R4 MINIMA
 //  AUTHER      :inteGN
@@ -47,13 +47,11 @@ void setup() {
     timer0.add_pwm_extended_cfg();
     auto cfg = timer0.get_cfg();
     auto ext = (gpt_extended_cfg_t*)cfg->p_extend;
-    static gpt_extended_pwm_cfg_t pwm_cfg;          //declare user pwm_cfg to ensure its lifetime
-    memcpy(&pwm_cfg, ext->p_pwm_cfg, sizeof(gpt_extended_pwm_cfg_t));
-    ext->p_pwm_cfg = &pwm_cfg;                      //replace pwm_cfg to user defined
+    auto pwm_cfg = (gpt_extended_pwm_cfg_t*)ext->p_pwm_cfg;
     cfg->mode = TIMER_MODE_TRIANGLE_WAVE_SYMMETRIC_PWM;
     ext->gtior_setting.gtior = gptGtior_set.gtior;
-    pwm_cfg.dead_time_count_up = 80;
-    pwm_cfg.dead_time_count_down = 0;               //RA4M1 does not use dead_time_count_down
+    pwm_cfg->dead_time_count_up = 80;
+    pwm_cfg->dead_time_count_down = 0;              //RA4M1 does not use dead_time_count_down
     timer0.open();
     timer0.set_duty_cycle(pwm_count0, CHANNEL_A);   //set after GPT0 is configurated by open()
     timer0.start();
